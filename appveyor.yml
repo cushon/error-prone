@@ -23,10 +23,3 @@ test_script:
 cache:
   - C:\maven\
   - C:\Users\appveyor\.m2
-
-notifications:
-  - provider: Email
-    to:
-      - error-prone-team+ci@google.com
-    on_build_failure: true
-    on_build_status_changed: true

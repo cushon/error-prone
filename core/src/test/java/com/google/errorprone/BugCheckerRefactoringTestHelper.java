@@ -63,8 +63,17 @@ public class BugCheckerRefactoringTestHelper {
       @Override
       void verifyMatch(JavaFileObject refactoredSource, JavaFileObject expectedSource)
           throws IOException {
-        assertThat(refactoredSource.getCharContent(false).toString())
-            .isEqualTo(expectedSource.getCharContent(false).toString());
+        String target = refactoredSource.getCharContent(false).toString();
+        String expected = expectedSource.getCharContent(false).toString();
+        if (!target.equals(expected)) {
+          System.err.println("===");
+          System.err.println(expected);
+          System.err.println("===");
+          System.err.println(target);
+          System.err.println("===");
+        }
+        assertThat(target)
+            .isEqualTo(expected);
       }
     },
     AST_MATCH {

@@ -18,6 +18,7 @@ package com.google.errorprone;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -131,7 +132,7 @@ public class ErrorProneInMemoryFileManager extends JavacFileManager {
     Path path = resolvePath(fileName);
     try {
       Files.createDirectories(path.getParent());
-      Files.write(path, Arrays.asList(lines), UTF_8);
+      Files.write(path, Joiner.on('\n').join(lines).getBytes(UTF_8));
     } catch (IOException e) {
       throw new AssertionError(e);
     }
