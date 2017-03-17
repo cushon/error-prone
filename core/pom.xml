@@ -102,6 +102,11 @@
       <version>3.0.0</version>
     </dependency>
     <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>jsr250-api</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
       <!-- GPLv2 with Classpath Exception -->
       <groupId>org.checkerframework</groupId>
       <artifactId>dataflow</artifactId>
