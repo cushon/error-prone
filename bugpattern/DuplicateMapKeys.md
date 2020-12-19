@@ -1,6 +1,7 @@
 ---
 title: DuplicateMapKeys
-summary: Map#ofEntries will throw an IllegalArgumentException if there are any duplicate keys
+summary: Map#ofEntries will throw an IllegalArgumentException if there are any duplicate
+  keys
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -30,4 +31,3 @@ Map<String, String> map = Map.ofEntries(
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("DuplicateMapKeys")` to the enclosing element.
-

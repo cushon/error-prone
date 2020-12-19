@@ -1,6 +1,7 @@
 ---
 title: OrphanedFormatString
-summary: String literal contains format specifiers, but is not passed to a format method
+summary: String literal contains format specifiers, but is not passed to a format
+  method
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -41,4 +42,3 @@ doesn't orphan a format string).
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("OrphanedFormatString")` to the enclosing element.
-

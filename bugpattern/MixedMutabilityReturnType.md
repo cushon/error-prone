@@ -1,6 +1,7 @@
 ---
 title: MixedMutabilityReturnType
-summary: This method returns both mutable and immutable collections or maps from different paths. This may be confusing for users of the method.
+summary: This method returns both mutable and immutable collections or maps from different
+  paths. This may be confusing for users of the method.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -47,4 +48,3 @@ exception for primes.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("MixedMutabilityReturnType")` to the enclosing element.
-

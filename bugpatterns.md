@@ -44,6 +44,9 @@ AsyncFunction should not return a null Future, only a Future whose result is nul
 __[AutoValueConstructorOrderChecker](bugpattern/AutoValueConstructorOrderChecker)__<br>
 Arguments to AutoValue constructor are in the wrong order
 
+__[BadAnnotationImplementation](bugpattern/BadAnnotationImplementation)__<br>
+Classes that implement Annotation must override equals and hashCode. Consider using AutoAnnotation instead of implementing Annotation by hand.
+
 __[BadShiftAmount](bugpattern/BadShiftAmount)__<br>
 Shift by an amount that is out of range
 
@@ -80,6 +83,9 @@ __[CompatibleWithAnnotationMisuse](bugpattern/CompatibleWithAnnotationMisuse)__<
 __[CompileTimeConstant](bugpattern/CompileTimeConstant)__<br>
 Non-compile-time constant expression passed to parameter with @CompileTimeConstant type annotation.
 
+__[ComputeIfAbsentAmbiguousReference](bugpattern/ComputeIfAbsentAmbiguousReference)__<br>
+computeIfAbsent passes the map key to the provided class&#39;s constructor
+
 __[ConditionalExpressionNumericPromotion](bugpattern/ConditionalExpressionNumericPromotion)__<br>
 A conditional expression with numeric operands of differing types will perform binary numeric promotion of the operands; when these operands are of reference types, the expression&#39;s result may not be of the expected type.
 
@@ -88,6 +94,9 @@ Compile-time constant expression overflows
 
 __[DaggerProvidesNull](bugpattern/DaggerProvidesNull)__<br>
 Dagger @Provides methods may not return null unless annotated with @Nullable
+
+__[DangerousLiteralNull](bugpattern/DangerousLiteralNull)__<br>
+This method is null-hostile: passing a null literal to it is always wrong
 
 __[DeadException](bugpattern/DeadException)__<br>
 Exception created but not thrown
@@ -131,8 +140,14 @@ __[EqualsReference](bugpattern/EqualsReference)__<br>
 __[EqualsWrongThing](bugpattern/EqualsWrongThing)__<br>
 Comparing different pairs of fields/getters in an equals implementation is probably a mistake.
 
-__[ExtendsAutoValue](bugpattern/ExtendsAutoValue)__<br>
-Do not extend an @AutoValue/@AutoOneOf class in non-generated code.
+__[FloggerFormatString](bugpattern/FloggerFormatString)__<br>
+Invalid printf-style format string
+
+__[FloggerLogVarargs](bugpattern/FloggerLogVarargs)__<br>
+logVarargs should be used to pass through format strings and arguments.
+
+__[FloggerSplitLogStatement](bugpattern/FloggerSplitLogStatement)__<br>
+Splitting log statements and using Api instances directly breaks logging.
 
 __[ForOverride](bugpattern/ForOverride)__<br>
 Method annotated @ForOverride must be protected or package-private and only invoked from declaring class, or from an override of the method
@@ -224,6 +239,9 @@ Invalid time zone identifier. TimeZone.getTimeZone(String) will silently return 
 __[InvalidZoneId](bugpattern/InvalidZoneId)__<br>
 Invalid zone identifier. ZoneId.of(String) will throw exception at runtime.
 
+__[IsInstanceIncompatibleType](bugpattern/IsInstanceIncompatibleType)__<br>
+This use of isInstance will always evaluate to false.
+
 __[IsInstanceOfClass](bugpattern/IsInstanceOfClass)__<br>
 The argument to Class#isInstance(Object) should not be a Class
 
@@ -272,6 +290,9 @@ Math.round(Integer) results in truncation
 __[MislabeledAndroidString](bugpattern/MislabeledAndroidString)__<br>
 Certain resources in `android.R.string` have names that do not match their content
 
+__[MisplacedScopeAnnotations](bugpattern/MisplacedScopeAnnotations)__<br>
+Scope annotations used as qualifier annotations don&#39;t have any effect. Move the scope annotation to the binding location or delete it.
+
 __[MissingSuperCall](bugpattern/MissingSuperCall)__<br>
 Overriding method is missing a call to overridden super method
 
@@ -284,8 +305,8 @@ Use of &#39;DD&#39; (day of year) in a date pattern with &#39;MM&#39; (month of 
 __[MisusedWeekYear](bugpattern/MisusedWeekYear)__<br>
 Use of &quot;YYYY&quot; (week year) in a date pattern without &quot;ww&quot; (week in year). You probably meant to use &quot;yyyy&quot; (year) instead.
 
-__[MockitoCast](bugpattern/MockitoCast)__<br>
-A bug in Mockito will cause this test to fail at runtime with a ClassCastException
+__[MixedDescriptors](bugpattern/MixedDescriptors)__<br>
+The field number passed into #getFieldByNumber belongs to a different proto to the Descriptor.
 
 __[MockitoUsage](bugpattern/MockitoUsage)__<br>
 Missing method call for verify(mock) here
@@ -344,9 +365,6 @@ When adding or subtracting from a Period, Duration is incompatible.
 __[PreconditionsInvalidPlaceholder](bugpattern/PreconditionsInvalidPlaceholder)__<br>
 Preconditions only accepts the %s placeholder in error message strings
 
-__[PredicateIncompatibleType](bugpattern/PredicateIncompatibleType)__<br>
-Using ::equals or ::isInstance as an incompatible Predicate; the predicate will always return false
-
 __[PrivateSecurityContractProtoAccess](bugpattern/PrivateSecurityContractProtoAccess)__<br>
 Access to a private protocol buffer field is forbidden. This protocol buffer carries a security contract, and can only be created using an approved library. Direct access to the fields is forbidden.
 
@@ -374,8 +392,8 @@ Use Random.nextInt(int).  Random.nextInt() % n can have negative results
 __[RectIntersectReturnValueIgnored](bugpattern/RectIntersectReturnValueIgnored)__<br>
 Return value of android.graphics.Rect.intersect() must be checked
 
-__[RefersToDaggerCodegen](bugpattern/RefersToDaggerCodegen)__<br>
-Don&#39;t refer to Dagger&#39;s internal or generated code
+__[RequiredModifiers](bugpattern/RequiredModifiers)__<br>
+This annotation is missing required modifiers as specified by its @RequiredModifiers annotation
 
 __[RestrictedApiChecker](bugpattern/RestrictedApiChecker)__<br>
 Check for non-whitelisted callers to RestrictedApiChecker.
@@ -422,6 +440,9 @@ throwIfUnchecked(knownCheckedException) is a no-op.
 __[ThrowNull](bugpattern/ThrowNull)__<br>
 Throwing &#39;null&#39; always results in a NullPointerException being thrown.
 
+__[TreeToString](bugpattern/TreeToString)__<br>
+Tree#toString shouldn&#39;t be used for Trees deriving from the code being compiled, as it discards whitespace and comments.
+
 __[TruthSelfEquals](bugpattern/TruthSelfEquals)__<br>
 isEqualTo should not be used to test an object for equality with itself; the assertion will never fail.
 
@@ -446,8 +467,14 @@ Collection is modified in place, but the result is not used
 __[VarTypeName](bugpattern/VarTypeName)__<br>
 `var` should not be used as a type name.
 
+__[WrongOneof](bugpattern/WrongOneof)__<br>
+This field is guaranteed not to be set given it&#39;s within a switch over a one_of.
+
 __[XorPower](bugpattern/XorPower)__<br>
 The `^` operator is binary XOR, not a power operator.
+
+__[ZoneIdOfZ](bugpattern/ZoneIdOfZ)__<br>
+Use ZoneOffset.UTC instead of ZoneId.of(&quot;Z&quot;).
 
 ## On by default : WARNING
 
@@ -489,9 +516,6 @@ AutoValue recommends using immutable collections
 
 __[AutoValueSubclassLeaked](bugpattern/AutoValueSubclassLeaked)__<br>
 Do not refer to the autogenerated AutoValue_ class outside the file containing the corresponding @AutoValue base class.
-
-__[BadAnnotationImplementation](bugpattern/BadAnnotationImplementation)__<br>
-Classes that implement Annotation must override equals and hashCode. Consider using AutoAnnotation instead of implementing Annotation by hand.
 
 __[BadComparable](bugpattern/BadComparable)__<br>
 Possible sign flip from narrowing conversion
@@ -559,6 +583,9 @@ The result of #compareTo or #compare should only be compared to 0. It is an impl
 __[ComplexBooleanConstant](bugpattern/ComplexBooleanConstant)__<br>
 Non-trivial compile time constant boolean expressions shouldn&#39;t be used.
 
+__[DateChecker](bugpattern/DateChecker)__<br>
+Warns against suspect looking calls to java.util.Date APIs
+
 __[DateFormatConstant](bugpattern/DateFormatConstant)__<br>
 DateFormat is not thread-safe, and should not be used as a constant field.
 
@@ -568,6 +595,15 @@ Implicit use of the platform default charset, which can result in differing beha
 __[DefaultPackage](bugpattern/DefaultPackage)__<br>
 Java classes shouldn&#39;t use default package
 
+__[DoNotCallSuggester](bugpattern/DoNotCallSuggester)__<br>
+Consider annotating methods that always throw with @DoNotCall. Read more at https://errorprone.info/bugpattern/DoNotCall
+
+__[DoNotClaimAnnotations](bugpattern/DoNotClaimAnnotations)__<br>
+Don&#39;t &#39;claim&#39; annotations in annotation processors; Processor#process should unconditionally return `false`
+
+__[DoNotMockAutoValue](bugpattern/DoNotMockAutoValue)__<br>
+AutoValue classes represent pure data classes, so mocking them should not be necessary. Construct a real instance of the class instead.
+
 __[DoubleBraceInitialization](bugpattern/DoubleBraceInitialization)__<br>
 Prefer collection factory methods or builders to the double-brace initialization pattern.
 
@@ -576,6 +612,9 @@ Double-checked locking on non-volatile fields is unsafe
 
 __[EmptyBlockTag](bugpattern/EmptyBlockTag)__<br>
 A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don&#39;t add much value for future readers of the code; consider removing the tag entirely or adding a description.
+
+__[EmptyCatch](bugpattern/EmptyCatch)__<br>
+Caught exceptions should not be ignored
 
 __[EmptySetMultibindingContributions](bugpattern/EmptySetMultibindingContributions)__<br>
 @Multibinds is a more efficient and declarative mechanism for ensuring that a set multibinding is present in the graph.
@@ -627,6 +666,9 @@ Calling getClass() on an enum may return a subclass of the enum type
 
 __[HidingField](bugpattern/HidingField)__<br>
 Hiding fields of superclasses may cause confusion and errors
+
+__[IdentityHashMapUsage](bugpattern/IdentityHashMapUsage)__<br>
+IdentityHashMap usage shouldn&#39;t be intermingled with Map
 
 __[IgnoredPureGetter](bugpattern/IgnoredPureGetter)__<br>
 Getters on AutoValue classes and protos are side-effect free, so there is no point in calling them if the return value is ignored.
@@ -688,6 +730,9 @@ This @param tag doesn&#39;t refer to a parameter of the method.
 __[InvalidThrows](bugpattern/InvalidThrows)__<br>
 The documented method doesn&#39;t actually throw this checked exception.
 
+__[InvalidThrowsLink](bugpattern/InvalidThrowsLink)__<br>
+Javadoc links to exceptions in @throws without a @link tag (@throws Exception, not @throws {@link Exception}).
+
 __[IterableAndIterator](bugpattern/IterableAndIterator)__<br>
 Class should not implement both `Iterable` and `Iterator`
 
@@ -698,7 +743,7 @@ __[JUnit4ClassUsedInJUnit3](bugpattern/JUnit4ClassUsedInJUnit3)__<br>
 Some JUnit4 construct cannot be used in a JUnit3 context. Convert your class to JUnit4 style to use them.
 
 __[JUnitAmbiguousTestClass](bugpattern/JUnitAmbiguousTestClass)__<br>
-Test class inherits from JUnit 3&#39;s TestCase but has JUnit 4 @Test annotations.
+Test class inherits from JUnit 3&#39;s TestCase but has JUnit 4 @Test or @RunWith annotations.
 
 __[JavaDurationGetSecondsGetNano](bugpattern/JavaDurationGetSecondsGetNano)__<br>
 duration.getNano() only accesses the underlying nanosecond adjustment from the whole second.
@@ -727,14 +772,20 @@ period.getDays() only accesses the &quot;days&quot; portion of the Period, and d
 __[JavaTimeDefaultTimeZone](bugpattern/JavaTimeDefaultTimeZone)__<br>
 java.time APIs that silently use the default system time-zone are not allowed.
 
+__[JavaUtilDate](bugpattern/JavaUtilDate)__<br>
+Date has a bad API that leads to bugs; prefer java.time.Instant or LocalDate.
+
 __[JavaxInjectOnFinalField](bugpattern/JavaxInjectOnFinalField)__<br>
 @javax.inject.Inject cannot be put on a final field.
 
 __[JdkObsolete](bugpattern/JdkObsolete)__<br>
 Suggests alternatives to obsolete JDK classes.
 
-__[JodaDurationConstructor](bugpattern/JodaDurationConstructor)__<br>
-Use of new Duration(long) is not allowed. Please use Duration.millis(long) instead.
+__[JodaConstructors](bugpattern/JodaConstructors)__<br>
+Use of certain JodaTime constructors are not allowed.
+
+__[JodaDateTimeConstants](bugpattern/JodaDateTimeConstants)__<br>
+Usage of the `_PER_` constants in `DateTimeConstants` are problematic because they encourage manual date/time math.
 
 __[JodaDurationWithMillis](bugpattern/JodaDurationWithMillis)__<br>
 Use of duration.withMillis(long) is not allowed. Please use Duration.millis(long) instead.
@@ -783,9 +834,6 @@ method overrides method in supertype; expected @Override
 
 __[MissingSummary](bugpattern/MissingSummary)__<br>
 A summary line is required on public/protected Javadocs.
-
-__[MixedDescriptors](bugpattern/MixedDescriptors)__<br>
-The field number passed into #getFieldByNumber belongs to a different proto to the Descriptor.
 
 __[MixedMutabilityReturnType](bugpattern/MixedMutabilityReturnType)__<br>
 This method returns both mutable and immutable collections or maps from different paths. This may be confusing for users of the method.
@@ -850,6 +898,9 @@ Use grouping parenthesis to make the operator precedence explicit
 __[OptionalMapToOptional](bugpattern/OptionalMapToOptional)__<br>
 Mapping to another Optional will yield a nested Optional. Did you mean flatMap?
 
+__[OptionalMapUnusedValue](bugpattern/OptionalMapUnusedValue)__<br>
+Optional.ifPresent is preferred over Optional.map when the return value is unused
+
 __[OptionalNotPresent](bugpattern/OptionalNotPresent)__<br>
 One should not call optional.get() inside an if statement that checks !optional.isPresent
 
@@ -898,9 +949,6 @@ reachabilityFence should always be called inside a finally block
 __[ReferenceEquality](bugpattern/ReferenceEquality)__<br>
 Comparison using reference equality instead of value equality
 
-__[RequiredModifiers](bugpattern/RequiredModifiers)__<br>
-This annotation is missing required modifiers as specified by its @RequiredModifiers annotation
-
 __[ReturnFromVoid](bugpattern/ReturnFromVoid)__<br>
 Void methods should not have a @return tag.
 
@@ -919,8 +967,14 @@ This assignment is to a static field. Mutating static state from a constructor i
 __[StaticGuardedByInstance](bugpattern/StaticGuardedByInstance)__<br>
 Writes to static fields should not be guarded by instance locks
 
+__[StaticMockMember](bugpattern/StaticMockMember)__<br>
+@Mock members of test classes shouldn&#39;t share state between tests and preferably be non-static
+
 __[StreamResourceLeak](bugpattern/StreamResourceLeak)__<br>
 Streams that encapsulate a closeable resource should be closed using try-with-resources
+
+__[StreamToIterable](bugpattern/StreamToIterable)__<br>
+Using stream::iterator creates a one-shot Iterable, which may cause surprising failures.
 
 __[StringSplitter](bugpattern/StringSplitter)__<br>
 String.split(String) has surprising behavior
@@ -948,9 +1002,6 @@ This TimeUnit conversion looks buggy: converting from a smaller unit to a larger
 
 __[ToStringReturnsNull](bugpattern/ToStringReturnsNull)__<br>
 An implementation of Object.toString() should never return null.
-
-__[TreeToString](bugpattern/TreeToString)__<br>
-Tree#toString shouldn&#39;t be used for Trees deriving from the code being compiled, as it discards whitespace and comments.
 
 __[TruthAssertExpected](bugpattern/TruthAssertExpected)__<br>
 The actual and expected values appear to be swapped, which results in poor assertion failure messages. The actual value should come first.
@@ -994,6 +1045,9 @@ Returning a lambda from a helper method or saving it in a constant is unnecessar
 __[UnnecessaryMethodInvocationMatcher](bugpattern/UnnecessaryMethodInvocationMatcher)__<br>
 It is not necessary to wrap a MethodMatcher with methodInvocation().
 
+__[UnnecessaryMethodReference](bugpattern/UnnecessaryMethodReference)__<br>
+This method reference is unnecessary, and can be replaced with the variable itself.
+
 __[UnnecessaryParentheses](bugpattern/UnnecessaryParentheses)__<br>
 These grouping parentheses are unnecessary; it is unlikely the code will be misinterpreted without them
 
@@ -1020,6 +1074,9 @@ __[UseBinds](bugpattern/UseBinds)__<br>
 
 __[UseCorrectAssertInTests](bugpattern/UseCorrectAssertInTests)__<br>
 Java assert is used in test. For testing purposes Assert.* matchers should be used.
+
+__[UseTimeInScope](bugpattern/UseTimeInScope)__<br>
+Prefer to reuse time sources rather than creating new ones. Having multiple unsynchronized time sources in scope risks accidents.
 
 __[VariableNameSameAsType](bugpattern/VariableNameSameAsType)__<br>
 variableName and type with the same name would refer to the static field instead of the class
@@ -1062,6 +1119,9 @@ Division by integer literal zero
 __[EmptyIf](bugpattern/EmptyIf)__<br>
 Empty statement after if
 
+__[ExtendsAutoValue](bugpattern/ExtendsAutoValue)__<br>
+Do not extend an @AutoValue/@AutoOneOf class in non-generated code.
+
 __[FuzzyEqualsShouldNotBeUsedInEqualsMethod](bugpattern/FuzzyEqualsShouldNotBeUsedInEqualsMethod)__<br>
 DoubleMath.fuzzyEquals should never be used in an Object.equals() method
 
@@ -1098,8 +1158,14 @@ Numeric comparison using reference equality instead of value equality
 __[ParameterPackage](bugpattern/ParameterPackage)__<br>
 Method parameter has wrong package
 
+__[RefersToDaggerCodegen](bugpattern/RefersToDaggerCodegen)__<br>
+Don&#39;t refer to Dagger&#39;s internal or generated code
+
 __[StaticOrDefaultInterfaceMethod](bugpattern/StaticOrDefaultInterfaceMethod)__<br>
 Static and default interface methods are not natively supported on older Android devices. 
+
+__[StaticQualifiedUsingExpression](bugpattern/StaticQualifiedUsingExpression)__<br>
+A static variable or method should be qualified with a class name, not expression
 
 __[UnlockMethod](bugpattern/UnlockMethod)__<br>
 This method does not acquire the locks specified by its @UnlockMethod annotation
@@ -1121,8 +1187,14 @@ A call to Binder.clearCallingIdentity() should be followed by Binder.restoreCall
 __[BindingToUnqualifiedCommonType](bugpattern/BindingToUnqualifiedCommonType)__<br>
 This code declares a binding for a common value type without a Qualifier annotation.
 
+__[CatchingUnchecked](bugpattern/CatchingUnchecked)__<br>
+This catch block catches `Exception`, but can only catch unchecked exceptions. Consider catching RuntimeException (or something more specific) instead so it is more apparent that no checked exceptions are being handled.
+
 __[CheckedExceptionNotThrown](bugpattern/CheckedExceptionNotThrown)__<br>
 This method cannot throw a checked exception that it claims to. This may cause consumers of the API to incorrectly attempt to handle, or propagate, this exception.
+
+__[DifferentNameButSame](bugpattern/DifferentNameButSame)__<br>
+This type is referred to in different ways within this file, which may be confusing.
 
 __[EmptyTopLevelDeclaration](bugpattern/EmptyTopLevelDeclaration)__<br>
 Empty top-level type declaration
@@ -1133,6 +1205,27 @@ equals() implementation may throw NullPointerException when given null
 __[ExpectedExceptionChecker](bugpattern/ExpectedExceptionChecker)__<br>
 Prefer assertThrows to ExpectedException
 
+__[FloggerLogWithCause](bugpattern/FloggerLogWithCause)__<br>
+Setting the caught exception as the cause of the log message may provide more context for anyone debugging errors.
+
+__[FloggerMessageFormat](bugpattern/FloggerMessageFormat)__<br>
+Invalid message format-style format specifier ({0}), expected printf-style (%s)
+
+__[FloggerPassedAround](bugpattern/FloggerPassedAround)__<br>
+There is no advantage to passing around a logger rather than declaring one in the class that needs it.
+
+__[FloggerRedundantIsEnabled](bugpattern/FloggerRedundantIsEnabled)__<br>
+Logger level check is already implied in the log() call. An explicit at[Level]().isEnabled() check is redundant.
+
+__[FloggerRequiredModifiers](bugpattern/FloggerRequiredModifiers)__<br>
+FluentLogger.forEnclosingClass should always be saved to a private static final field.
+
+__[FloggerWithCause](bugpattern/FloggerWithCause)__<br>
+Calling withCause(Throwable) with an inline allocated Throwable is discouraged. Consider using withStackTrace(StackSize) instead, and specifying a reduced stack size (e.g. SMALL, MEDIUM or LARGE) instead of FULL, to improve performance.
+
+__[FloggerWithoutCause](bugpattern/FloggerWithoutCause)__<br>
+Use withCause to associate Exceptions with log statements
+
 __[FunctionalInterfaceClash](bugpattern/FunctionalInterfaceClash)__<br>
 Overloads will be ambiguous when passing lambda arguments.
 
@@ -1142,11 +1235,17 @@ Hardcoded reference to /sdcard
 __[InconsistentOverloads](bugpattern/InconsistentOverloads)__<br>
 The ordering of parameters in overloaded methods should be as consistent as possible (when viewed from left to right)
 
+__[InitializeInline](bugpattern/InitializeInline)__<br>
+Initializing variables in their declaring statement is clearer, where possible.
+
 __[InterfaceWithOnlyStatics](bugpattern/InterfaceWithOnlyStatics)__<br>
 This interface only contains static fields and methods; consider making it a final class instead to prevent subclassing.
 
 __[InterruptedExceptionSwallowed](bugpattern/InterruptedExceptionSwallowed)__<br>
 This catch block appears to be catching an explicitly declared InterruptedException as an Exception/Throwable and not handling the interruption separately.
+
+__[MemberName](bugpattern/MemberName)__<br>
+Methods and non-static variables should be named in lowerCamelCase.
 
 __[MissingDefault](bugpattern/MissingDefault)__<br>
 The Google Java Style Guide requires that each switch statement includes a default statement group, even if it contains no code. (This requirement is lifted for any switch statement that covers all values of an enum.)
@@ -1159,9 +1258,6 @@ Instead of returning a functional type, return the actual type that the returned
 
 __[NonCanonicalStaticMemberImport](bugpattern/NonCanonicalStaticMemberImport)__<br>
 Static import of member uses non-canonical name
-
-__[NullableDereference](bugpattern/NullableDereference)__<br>
-Dereference of possibly-null value
 
 __[PreferJavaTimeOverload](bugpattern/PreferJavaTimeOverload)__<br>
 Prefer using java.time-based APIs when available. Note that this checker does not and cannot guarantee that the overloads have equivalent semantics, but that is generally the case with overloaded methods.
@@ -1184,9 +1280,6 @@ This overriding method is redundant, and can be removed.
 __[RedundantThrows](bugpattern/RedundantThrows)__<br>
 Thrown exception is a subtype of another
 
-__[StaticQualifiedUsingExpression](bugpattern/StaticQualifiedUsingExpression)__<br>
-A static variable or method should be qualified with a class name, not expression
-
 __[StringEquality](bugpattern/StringEquality)__<br>
 String comparison using reference equality instead of value equality
 
@@ -1203,7 +1296,7 @@ __[TestExceptionChecker](bugpattern/TestExceptionChecker)__<br>
 Using @Test(expected=...) is discouraged, since the test will pass if *any* statement in the test method throws the expected exception
 
 __[ThrowSpecificExceptions](bugpattern/ThrowSpecificExceptions)__<br>
-Consider throwing more specific exceptions rather than (e.g.) RuntimeException. Throwing generic exceptions forces any users of the API that wish to handle the failure mode to catch very non-specific exceptions that convey little information.
+Base exception classes should be treated as abstract. If the exception is intended to be caught, throw a domain-specific exception. Otherwise, prefer a more specific exception for clarity. Common alternatives include: AssertionError, IllegalArgumentException, IllegalStateException, and (Guava&#39;s) VerifyException.
 
 __[TimeUnitMismatch](bugpattern/TimeUnitMismatch)__<br>
 An value that appears to be represented in one unit is used where another appears to be required (e.g., seconds where nanos are needed)
@@ -1212,10 +1305,19 @@ __[TransientMisuse](bugpattern/TransientMisuse)__<br>
 Static fields are implicitly transient, so the explicit modifier is unnecessary
 
 __[UnnecessarilyFullyQualified](bugpattern/UnnecessarilyFullyQualified)__<br>
-This fully qualified name is unambiguous if imported.
+This fully qualified name is unambiguous to the compiler if imported.
+
+__[UnnecessarilyVisible](bugpattern/UnnecessarilyVisible)__<br>
+Some methods (such as those annotated with @Inject or @Provides) are only intended to be called by a framework, and so should have default visibility
 
 __[UnnecessaryDefaultInEnumSwitch](bugpattern/UnnecessaryDefaultInEnumSwitch)__<br>
 Switch handles all enum values: an explicit default case is unnecessary and defeats error checking for non-exhaustive switches.
+
+__[UnnecessaryOptionalGet](bugpattern/UnnecessaryOptionalGet)__<br>
+This code can be simplified by directly using the lambda parameters instead of calling get..() on optional.
+
+__[UnsafeLocaleUsage](bugpattern/UnsafeLocaleUsage)__<br>
+Possible unsafe operation related to the java.util.Locale library.
 
 __[UnusedException](bugpattern/UnusedException)__<br>
 This catch block catches an exception and re-throws another, but swallows the caught exception rather than setting it as a cause. This can make debugging harder.
@@ -1246,14 +1348,23 @@ This field is only assigned during initialization; consider making it final
 __[FieldCanBeLocal](bugpattern/FieldCanBeLocal)__<br>
 This field can be replaced with a local variable in the methods that use it.
 
-__[FieldMissingNullable](bugpattern/FieldMissingNullable)__<br>
-Fields that can be null should be annotated @Nullable
+__[FieldCanBeStatic](bugpattern/FieldCanBeStatic)__<br>
+A final field initialized at compile-time with an instance of an immutable type can be static.
 
 __[ForEachIterable](bugpattern/ForEachIterable)__<br>
 This loop can be replaced with an enhanced for loop.
 
+__[HashCodeToString](bugpattern/HashCodeToString)__<br>
+Classes that override hashCode should also consider overriding toString.
+
+__[ImmutableMemberCollection](bugpattern/ImmutableMemberCollection)__<br>
+If you don&#39;t intend to mutate a member collection prefer using Immutable types.
+
 __[ImmutableRefactoring](bugpattern/ImmutableRefactoring)__<br>
 Refactors uses of the JSR 305 @Immutable to Error Prone&#39;s annotation
+
+__[ImmutableSetForContains](bugpattern/ImmutableSetForContains)__<br>
+This private static ImmutableList either does not contain duplicates or is only used for contains, containsAll or isEmpty checks or both. ImmutableSet is a better type for such collection. It is often more efficient and / or captures useful info about absence of duplicates.
 
 __[ImplementAssertionWithChaining](bugpattern/ImplementAssertionWithChaining)__<br>
 Prefer check(...), which usually generates more readable failure messages.
@@ -1288,14 +1399,23 @@ Add a private constructor to modules that will not be instantiated by Dagger.
 __[PrivateConstructorForUtilityClass](bugpattern/PrivateConstructorForUtilityClass)__<br>
 Classes which are not intended to be instantiated should be made non-instantiable with a private constructor. This includes utility classes (classes with only static members), and the main class.
 
+__[PublicConstructorForAbstractClass](bugpattern/PublicConstructorForAbstractClass)__<br>
+Constructors of an abstract class can be declared protected as there is never a need for them to be public
+
 __[RemoveUnusedImports](bugpattern/RemoveUnusedImports)__<br>
 Unused imports
+
+__[ReturnsNullCollection](bugpattern/ReturnsNullCollection)__<br>
+Methods has a collection return type and returns {@code null} in some cases but does not annotate the method as @Nullable. See Effective Java 3rd Edition Item 54.
 
 __[ScopeOnModule](bugpattern/ScopeOnModule)__<br>
 Scopes on modules have no function and will soon be an error.
 
 __[SwitchDefault](bugpattern/SwitchDefault)__<br>
 The default case of a switch should appear at the end of the last statement group
+
+__[SymbolToString](bugpattern/SymbolToString)__<br>
+Symbol#toString shouldn&#39;t be used for comparison as it is expensive and fragile.
 
 __[ThrowsUncheckedException](bugpattern/ThrowsUncheckedException)__<br>
 Unchecked exceptions do not need to be declared in the method signature.
@@ -1305,6 +1425,9 @@ Prefer assertThrows to try/fail
 
 __[TypeParameterNaming](bugpattern/TypeParameterNaming)__<br>
 Type parameters must be a single letter with an optional numeric suffix, or an UpperCamelCase name followed by the letter &#39;T&#39;.
+
+__[TypeToString](bugpattern/TypeToString)__<br>
+Type#toString shouldn&#39;t be used for comparison as it is expensive and fragile.
 
 __[UngroupedOverloads](bugpattern/UngroupedOverloads)__<br>
 Constructors and methods with the same name should appear sequentially with no other code in between. Please re-order or re-name methods.
@@ -1320,6 +1443,9 @@ Unnecessary call to NullPointerTester#setDefault
 
 __[UnnecessaryStaticImport](bugpattern/UnnecessaryStaticImport)__<br>
 Using static imports for types is unnecessary
+
+__[UseEnumSwitch](bugpattern/UseEnumSwitch)__<br>
+Prefer using a switch instead of a chained if-else for enums
 
 __[WildcardImport](bugpattern/WildcardImport)__<br>
 Wildcard imports, static or otherwise, should not be used

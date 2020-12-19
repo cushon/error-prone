@@ -1,6 +1,7 @@
 ---
 title: PreconditionsCheckNotNullRepeated
-summary: Including the first argument of checkNotNull in the failure message is not useful, as it will always be `null`.
+summary: Including the first argument of checkNotNull in the failure message is not
+  useful, as it will always be `null`.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -12,9 +13,6 @@ To make changes, edit the @BugPattern annotation or the explanation in docs/bugp
 -->
 
 
-## The problem
-
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("PreconditionsCheckNotNullRepeated")` to the enclosing element.
-

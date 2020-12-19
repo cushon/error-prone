@@ -1,6 +1,7 @@
 ---
 title: NullableVoid
-summary: void-returning methods should not be annotated with @Nullable, since they cannot return null
+summary: void-returning methods should not be annotated with @Nullable, since they
+  cannot return null
 layout: bugpattern
 tags: Style
 severity: WARNING
@@ -17,4 +18,3 @@ void-returning methods cannot return null.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("NullableVoid")` to the enclosing element.
-

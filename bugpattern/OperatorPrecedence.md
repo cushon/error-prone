@@ -21,12 +21,10 @@ The [Google Java Style Guide §4.7][style] states:
 > to assume that every reader has the entire Java operator precedence table
 > memorized.
 
-[style]:
-https://google.github.io/styleguide/javaguide.html#s4.7-grouping-parentheses
+[style]: https://google.github.io/styleguide/javaguide.html#s4.7-grouping-parentheses
 
 Use grouping parentheses to disambiguate expressions that contain both `||` and
 `&&`, or both shift and arithmetic operators.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("OperatorPrecedence")` to the enclosing element.
-

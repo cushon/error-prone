@@ -1,6 +1,8 @@
 ---
 title: ConditionalExpressionNumericPromotion
-summary: A conditional expression with numeric operands of differing types will perform binary numeric promotion of the operands; when these operands are of reference types, the expression's result may not be of the expected type.
+summary: A conditional expression with numeric operands of differing types will perform
+  binary numeric promotion of the operands; when these operands are of reference types,
+  the expression's result may not be of the expected type.
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -55,4 +57,3 @@ Or use if/else:
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("ConditionalExpressionNumericPromotion")` to the enclosing element.
-

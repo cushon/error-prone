@@ -1,6 +1,7 @@
 ---
 title: JavaDurationGetSecondsGetNano
-summary: duration.getNano() only accesses the underlying nanosecond adjustment from the whole second.
+summary: duration.getNano() only accesses the underlying nanosecond adjustment from
+  the whole second.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -17,4 +18,3 @@ If you call duration.getNano(), you must also call duration.getSeconds() in 'nea
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("JavaDurationGetSecondsGetNano")` to the enclosing element.
-

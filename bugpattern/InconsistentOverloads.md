@@ -1,6 +1,7 @@
 ---
 title: InconsistentOverloads
-summary: The ordering of parameters in overloaded methods should be as consistent as possible (when viewed from left to right)
+summary: The ordering of parameters in overloaded methods should be as consistent
+  as possible (when viewed from left to right)
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -44,4 +45,3 @@ clearly a bug caused by unintuitive API and method overloading.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("InconsistentOverloads")` to the enclosing element.
-

@@ -1,6 +1,7 @@
 ---
 title: AutoValueFinalMethods
-summary: Make toString(), hashCode() and equals() final in AutoValue classes, so it is clear to readers that AutoValue is not overriding them
+summary: Make toString(), hashCode() and equals() final in AutoValue classes, so it
+  is clear to readers that AutoValue is not overriding them
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -28,4 +29,3 @@ the check doesn't flag them.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("AutoValueFinalMethods")` to the enclosing element.
-

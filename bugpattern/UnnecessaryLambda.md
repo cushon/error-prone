@@ -1,6 +1,8 @@
 ---
 title: UnnecessaryLambda
-summary: Returning a lambda from a helper method or saving it in a constant is unnecessary; prefer to implement the functional interface method directly and use a method reference instead.
+summary: Returning a lambda from a helper method or saving it in a constant is unnecessary;
+  prefer to implement the functional interface method directly and use a method reference
+  instead.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -65,4 +67,3 @@ this change.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("UnnecessaryLambda")` to the enclosing element.
-

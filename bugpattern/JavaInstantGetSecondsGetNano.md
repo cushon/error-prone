@@ -1,6 +1,7 @@
 ---
 title: JavaInstantGetSecondsGetNano
-summary: instant.getNano() only accesses the underlying nanosecond adjustment from the whole second.
+summary: instant.getNano() only accesses the underlying nanosecond adjustment from
+  the whole second.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -17,4 +18,3 @@ If you call instant.getNano(), you must also call instant.getEpochSecond() in 'n
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("JavaInstantGetSecondsGetNano")` to the enclosing element.
-

@@ -1,8 +1,9 @@
 ---
 title: IncompatibleModifiers
-summary: This annotation has incompatible modifiers as specified by its @IncompatibleModifiers annotation
+summary: This annotation has incompatible modifiers as specified by its @IncompatibleModifiers
+  annotation
 layout: bugpattern
-tags: LikelyError
+tags: ''
 severity: ERROR
 ---
 
@@ -19,4 +20,3 @@ annotations respect their @IncompatibleModifiers specifications.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("IncompatibleModifiers")` to the enclosing element.
-

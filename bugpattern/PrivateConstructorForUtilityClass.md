@@ -1,6 +1,8 @@
 ---
 title: PrivateConstructorForUtilityClass
-summary: Classes which are not intended to be instantiated should be made non-instantiable with a private constructor. This includes utility classes (classes with only static members), and the main class.
+summary: Classes which are not intended to be instantiated should be made non-instantiable
+  with a private constructor. This includes utility classes (classes with only static
+  members), and the main class.
 layout: bugpattern
 tags: ''
 severity: SUGGESTION
@@ -33,10 +35,9 @@ public class UtilityClass {
 
 See:
 
-*   [Effective Java, Third Edition, Item 4][ej3e-4]
+*   [Effective Java 3rd Edition §4][ej3e-4]
 
 [ej3e-4]: https://books.google.com/books?id=BIpDDwAAQBAJ
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("PrivateConstructorForUtilityClass")` to the enclosing element.
-

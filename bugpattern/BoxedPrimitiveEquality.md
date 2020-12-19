@@ -1,6 +1,8 @@
 ---
 title: BoxedPrimitiveEquality
-summary: Comparison using reference equality instead of value equality. Reference equality of boxed primitive types is usually not useful, as they are value objects, and it is bug-prone, as instances are cached for some values but not others.
+summary: Comparison using reference equality instead of value equality. Reference
+  equality of boxed primitive types is usually not useful, as they are value objects,
+  and it is bug-prone, as instances are cached for some values but not others.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -24,4 +26,3 @@ immutable types whose equals() method fully compares their values.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("BoxedPrimitiveEquality")` to the enclosing element.
-

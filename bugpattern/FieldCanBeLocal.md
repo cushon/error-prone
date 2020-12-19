@@ -1,6 +1,7 @@
 ---
 title: FieldCanBeLocal
-summary: This field can be replaced with a local variable in the methods that use it.
+summary: This field can be replaced with a local variable in the methods that use
+  it.
 layout: bugpattern
 tags: ''
 severity: SUGGESTION
@@ -10,7 +11,6 @@ severity: SUGGESTION
 *** AUTO-GENERATED, DO NOT MODIFY ***
 To make changes, edit the @BugPattern annotation or the explanation in docs/bugpattern.
 -->
-
 
 _Alternate names: unused, Unused_
 
@@ -49,8 +49,5 @@ class Frobnicator {
 
 ## Suppression
 
-This check is suppressed by `@SuppressWarnings("FieldCanBeLocal")` as well as
-the same suppression mechanisms as `UnusedVariable`
-(`@SuppressWarnings("unused")`.
-
+This check is suppressed by `@SuppressWarnings("FieldCanBeLocal")`.
 

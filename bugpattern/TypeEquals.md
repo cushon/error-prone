@@ -1,6 +1,8 @@
 ---
 title: TypeEquals
-summary: com.sun.tools.javac.code.Type doesn't override Object.equals and instances are not interned by javac, so testing types for equality should be done with Types#isSameType instead
+summary: com.sun.tools.javac.code.Type doesn't override Object.equals and instances
+  are not interned by javac, so testing types for equality should be done with Types#isSameType
+  instead
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -27,4 +29,3 @@ from `javax.annotation.processing.ProcessingEnvironment`.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("TypeEquals")` to the enclosing element.
-

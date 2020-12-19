@@ -1,6 +1,7 @@
 ---
 title: StaticAssignmentInConstructor
-summary: This assignment is to a static field. Mutating static state from a constructor is highly error-prone.
+summary: This assignment is to a static field. Mutating static state from a constructor
+  is highly error-prone.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -28,4 +29,3 @@ Common reasons are:
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("StaticAssignmentInConstructor")` to the enclosing element.
-

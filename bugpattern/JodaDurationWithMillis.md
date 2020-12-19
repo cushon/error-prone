@@ -1,6 +1,7 @@
 ---
 title: JodaDurationWithMillis
-summary: Use of duration.withMillis(long) is not allowed. Please use Duration.millis(long) instead.
+summary: Use of duration.withMillis(long) is not allowed. Please use Duration.millis(long)
+  instead.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -17,4 +18,3 @@ Joda-Time's 'duration.withMillis(long)' method is often a source of bugs because
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("JodaDurationWithMillis")` to the enclosing element.
-

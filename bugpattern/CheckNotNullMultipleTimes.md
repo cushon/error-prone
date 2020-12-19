@@ -1,6 +1,7 @@
 ---
 title: CheckNotNullMultipleTimes
-summary: A variable was checkNotNulled multiple times. Did you mean to check something else?
+summary: A variable was checkNotNulled multiple times. Did you mean to check something
+  else?
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -12,9 +13,6 @@ To make changes, edit the @BugPattern annotation or the explanation in docs/bugp
 -->
 
 
-## The problem
-
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("CheckNotNullMultipleTimes")` to the enclosing element.
-

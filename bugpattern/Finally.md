@@ -1,6 +1,7 @@
 ---
 title: Finally
-summary: If you return or throw from a finally, then values returned or thrown from the try-catch block will be ignored. Consider using try-with-resources instead.
+summary: If you return or throw from a finally, then values returned or thrown from
+  the try-catch block will be ignored. Consider using try-with-resources instead.
 layout: bugpattern
 tags: FragileCode
 severity: WARNING
@@ -10,7 +11,6 @@ severity: WARNING
 *** AUTO-GENERATED, DO NOT MODIFY ***
 To make changes, edit the @BugPattern annotation or the explanation in docs/bugpattern.
 -->
-
 
 _Alternate names: finally, ThrowFromFinallyBlock_
 
@@ -50,7 +50,7 @@ try (InputStream in = openInputStream()) {
 ```
 
 If Java 7 is not available, we recommend Guava's
-[Closer API](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/io/Closer.html).
+[Closer API](https://guava.dev/releases/snapshot/api/docs/com/google/common/io/Closer.html).
 
 ```java
 Closer closer = Closer.create();
@@ -66,4 +66,3 @@ try {
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("Finally")` to the enclosing element.
-

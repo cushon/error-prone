@@ -1,6 +1,7 @@
 ---
 title: MissingCasesInEnumSwitch
-summary: Switches on enum types should either handle all values, or have a default case.
+summary: Switches on enum types should either handle all values, or have a default
+  case.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -47,4 +48,3 @@ have a default statement group.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("MissingCasesInEnumSwitch")` to the enclosing element.
-

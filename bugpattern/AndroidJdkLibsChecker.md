@@ -1,6 +1,7 @@
 ---
 title: AndroidJdkLibsChecker
-summary: Use of class, field, or method that is not compatible with legacy Android devices
+summary: Use of class, field, or method that is not compatible with legacy Android
+  devices
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -10,7 +11,6 @@ severity: ERROR
 *** AUTO-GENERATED, DO NOT MODIFY ***
 To make changes, edit the @BugPattern annotation or the explanation in docs/bugpattern.
 -->
-
 
 _Alternate names: Java7ApiChecker, AndroidApiChecker_
 
@@ -30,9 +30,8 @@ To suppress for a particular statement, method, or class, use
 `@SuppressWarnings`:
 
 ```
-@SuppressWarnings("AndroidJdkLibsChecker") // TODO({{USERNAME}}): document suppression
+@SuppressWarnings("AndroidJdkLibsChecker") // TODO(user): document suppression
 ```
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("AndroidJdkLibsChecker")` to the enclosing element.
-

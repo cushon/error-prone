@@ -1,6 +1,7 @@
 ---
 title: VariableNameSameAsType
-summary: variableName and type with the same name would refer to the static field instead of the class
+summary: variableName and type with the same name would refer to the static field
+  instead of the class
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -36,4 +37,3 @@ private static String string;
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("VariableNameSameAsType")` to the enclosing element.
-

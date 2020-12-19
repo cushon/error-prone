@@ -1,6 +1,8 @@
 ---
 title: PreferJavaTimeOverload
-summary: Prefer using java.time-based APIs when available. Note that this checker does not and cannot guarantee that the overloads have equivalent semantics, but that is generally the case with overloaded methods.
+summary: Prefer using java.time-based APIs when available. Note that this checker
+  does not and cannot guarantee that the overloads have equivalent semantics, but
+  that is generally the case with overloaded methods.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -10,7 +12,6 @@ severity: WARNING
 *** AUTO-GENERATED, DO NOT MODIFY ***
 To make changes, edit the @BugPattern annotation or the explanation in docs/bugpattern.
 -->
-
 
 _Alternate names: PreferDurationOverload_
 
@@ -37,4 +38,3 @@ APIs that require a `long, TimeUnit` pair suffer from a number of problems
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("PreferJavaTimeOverload")` to the enclosing element.
-

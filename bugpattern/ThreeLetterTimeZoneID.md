@@ -1,6 +1,7 @@
 ---
 title: ThreeLetterTimeZoneID
-summary: Three-letter time zone identifiers are deprecated, may be ambiguous, and might not do what you intend; the full IANA time zone ID should be used instead.
+summary: Three-letter time zone identifiers are deprecated, may be ambiguous, and
+  might not do what you intend; the full IANA time zone ID should be used instead.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -42,4 +43,3 @@ the ID appears in `ZoneId.getAvailableZoneIds()`, e.g. "UTC", "GMT", "PRC".
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("ThreeLetterTimeZoneID")` to the enclosing element.
-

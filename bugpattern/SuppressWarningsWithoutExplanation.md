@@ -1,6 +1,7 @@
 ---
 title: SuppressWarningsWithoutExplanation
-summary: Use of @SuppressWarnings should be accompanied by a comment describing why the warning is safe to ignore.
+summary: Use of @SuppressWarnings should be accompanied by a comment describing why
+  the warning is safe to ignore.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -36,4 +37,3 @@ public ImmutableList<Object> performScaryCast(ImmutableList<String> strings) {
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("SuppressWarningsWithoutExplanation")` to the enclosing element.
-

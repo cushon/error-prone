@@ -1,6 +1,7 @@
 ---
 title: MislabeledAndroidString
-summary: Certain resources in `android.R.string` have names that do not match their content
+summary: Certain resources in `android.R.string` have names that do not match their
+  content
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -21,4 +22,3 @@ resources.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("MislabeledAndroidString")` to the enclosing element.
-

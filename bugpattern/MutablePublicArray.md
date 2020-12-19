@@ -1,6 +1,8 @@
 ---
 title: MutablePublicArray
-summary: Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+summary: Non-empty arrays are mutable, so this `public static final` array is not
+  a constant and can be modified by clients of this class.  Prefer an ImmutableList,
+  or provide an accessor method that returns a defensive copy.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -24,8 +26,9 @@ There are two ways to fix this problem:
 2.  Make the array `private` and add a `public` method that returns a copy of
     the `private` array.
 
-See Effective Java 3rd Edition, Item 15, for more details.
+See [Effective Java 3rd Edition §15][ej3e-15] for more details.
+
+[ej3e-15]: https://books.google.com/books?id=BIpDDwAAQBAJ
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("MutablePublicArray")` to the enclosing element.
-

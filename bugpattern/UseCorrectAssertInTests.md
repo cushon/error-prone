@@ -1,6 +1,7 @@
 ---
 title: UseCorrectAssertInTests
-summary: Java assert is used in test. For testing purposes Assert.* matchers should be used.
+summary: Java assert is used in test. For testing purposes Assert.* matchers should
+  be used.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -21,4 +22,3 @@ use one of the assertion libraries that are always enabled, such as JUnit's
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("UseCorrectAssertInTests")` to the enclosing element.
-

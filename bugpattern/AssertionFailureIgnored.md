@@ -1,6 +1,7 @@
 ---
 title: AssertionFailureIgnored
-summary: This assertion throws an AssertionError if it fails, which will be caught by an enclosing try block.
+summary: This assertion throws an AssertionError if it fails, which will be caught
+  by an enclosing try block.
 layout: bugpattern
 tags: LikelyError
 severity: WARNING
@@ -45,4 +46,3 @@ public void testFailsWithAssertionError() {
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("AssertionFailureIgnored")` to the enclosing element.
-

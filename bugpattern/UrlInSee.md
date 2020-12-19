@@ -1,6 +1,7 @@
 ---
 title: UrlInSee
-summary: URLs should not be used in @see tags; they are designed for Java elements which could be used with @link.
+summary: URLs should not be used in @see tags; they are designed for Java elements
+  which could be used with @link.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -12,9 +13,6 @@ To make changes, edit the @BugPattern annotation or the explanation in docs/bugp
 -->
 
 
-## The problem
-
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("UrlInSee")` to the enclosing element.
-

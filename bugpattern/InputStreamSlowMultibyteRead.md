@@ -1,6 +1,7 @@
 ---
 title: InputStreamSlowMultibyteRead
-summary: Please also override int read(byte[], int, int), otherwise multi-byte reads from this input stream are likely to be slow.
+summary: Please also override int read(byte[], int, int), otherwise multi-byte reads
+  from this input stream are likely to be slow.
 layout: bugpattern
 tags: Performance
 severity: WARNING
@@ -30,4 +31,3 @@ the default behavior of the multibyte read method.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("InputStreamSlowMultibyteRead")` to the enclosing element.
-

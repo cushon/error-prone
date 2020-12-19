@@ -1,6 +1,7 @@
 ---
 title: NullOptional
-summary: Passing a literal null to an Optional parameter is almost certainly a mistake. Did you mean to provide an empty Optional?
+summary: Passing a literal null to an Optional parameter is almost certainly a mistake.
+  Did you mean to provide an empty Optional?
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -35,4 +36,3 @@ if the parameter is explicitly annotated `@Nullable`.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("NullOptional")` to the enclosing element.
-

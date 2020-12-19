@@ -1,6 +1,8 @@
 ---
 title: MissingDefault
-summary: The Google Java Style Guide requires that each switch statement includes a default statement group, even if it contains no code. (This requirement is lifted for any switch statement that covers all values of an enum.)
+summary: The Google Java Style Guide requires that each switch statement includes
+  a default statement group, even if it contains no code. (This requirement is lifted
+  for any switch statement that covers all values of an enum.)
 layout: bugpattern
 tags: Style
 severity: WARNING
@@ -55,10 +57,8 @@ switch (state) {
 }
 ```
 
-[style]: https://google.github.io/styleguide/javaguide.html#s4.8.4-switch
-
+[style]: https://google.github.io/styleguide/javaguide.html#s4.8.4.3-switch-default
 [MissingCasesInEnumSwitch]: https://errorprone.info/bugpattern/MissingCasesInEnumSwitch
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("MissingDefault")` to the enclosing element.
-

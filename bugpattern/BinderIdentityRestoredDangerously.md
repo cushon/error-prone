@@ -1,6 +1,8 @@
 ---
 title: BinderIdentityRestoredDangerously
-summary: A call to Binder.clearCallingIdentity() should be followed by Binder.restoreCallingIdentity() in a finally block. Otherwise the wrong Binder identity may be used by subsequent code.
+summary: A call to Binder.clearCallingIdentity() should be followed by Binder.restoreCallingIdentity()
+  in a finally block. Otherwise the wrong Binder identity may be used by subsequent
+  code.
 layout: bugpattern
 tags: FragileCode
 severity: WARNING
@@ -12,9 +14,6 @@ To make changes, edit the @BugPattern annotation or the explanation in docs/bugp
 -->
 
 
-## The problem
-
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("BinderIdentityRestoredDangerously")` to the enclosing element.
-

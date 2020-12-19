@@ -1,6 +1,7 @@
 ---
 title: InjectOnConstructorOfAbstractClass
-summary: Constructors on abstract classes are never directly @Inject'ed, only the constructors of their subclasses can be @Inject'ed.
+summary: Constructors on abstract classes are never directly @Inject'ed, only the
+  constructors of their subclasses can be @Inject'ed.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -21,4 +22,3 @@ annotation has no effect.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("InjectOnConstructorOfAbstractClass")` to the enclosing element.
-

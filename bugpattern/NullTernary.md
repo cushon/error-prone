@@ -1,6 +1,7 @@
 ---
 title: NullTernary
-summary: This conditional expression may evaluate to null, which will result in an NPE when the result is unboxed.
+summary: This conditional expression may evaluate to null, which will result in an
+  NPE when the result is unboxed.
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -27,4 +28,3 @@ resulting in a NullPointerException.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("NullTernary")` to the enclosing element.
-

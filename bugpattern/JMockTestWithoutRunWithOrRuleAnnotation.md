@@ -1,6 +1,7 @@
 ---
 title: JMockTestWithoutRunWithOrRuleAnnotation
-summary: jMock tests must have a @RunWith(JMock.class) annotation, or the Mockery field must have a @Rule JUnit annotation
+summary: jMock tests must have a @RunWith(JMock.class) annotation, or the Mockery
+  field must have a @Rule JUnit annotation
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -20,4 +21,3 @@ Your tests will pass even if they shouldn't.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("JMockTestWithoutRunWithOrRuleAnnotation")` to the enclosing element.
-

@@ -1,6 +1,7 @@
 ---
 title: ThreadPriorityCheck
-summary: Relying on the thread scheduler is discouraged; see Effective Java 3rd Edition Item 84.
+summary: Relying on the thread scheduler is discouraged; see Effective Java 3rd Edition
+  Item 84.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -12,9 +13,6 @@ To make changes, edit the @BugPattern annotation or the explanation in docs/bugp
 -->
 
 
-## The problem
-
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("ThreadPriorityCheck")` to the enclosing element.
-

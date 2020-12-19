@@ -1,6 +1,7 @@
 ---
 title: SwitchDefault
-summary: The default case of a switch should appear at the end of the last statement group
+summary: The default case of a switch should appear at the end of the last statement
+  group
 layout: bugpattern
 tags: ''
 severity: SUGGESTION
@@ -12,9 +13,6 @@ To make changes, edit the @BugPattern annotation or the explanation in docs/bugp
 -->
 
 
-## The problem
-
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("SwitchDefault")` to the enclosing element.
-

@@ -1,6 +1,7 @@
 ---
 title: UngroupedOverloads
-summary: Constructors and methods with the same name should appear sequentially with no other code in between. Please re-order or re-name methods.
+summary: Constructors and methods with the same name should appear sequentially with
+  no other code in between. Please re-order or re-name methods.
 layout: bugpattern
 tags: Style
 severity: SUGGESTION
@@ -32,8 +33,7 @@ NOTE: this rule implies that a private helper used by a single method, which you
 might normally place just below that method, should be placed below *all*
 overloads of that method.
 
-[style]: https://google.github.io/styleguide/javaguide.html#s3.4.2-ordering-class-contents
+[style]: https://google.github.io/styleguide/javaguide.html#s3.4.2.1-overloads-never-split
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("UngroupedOverloads")` to the enclosing element.
-

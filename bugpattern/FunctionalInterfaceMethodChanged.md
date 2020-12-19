@@ -1,6 +1,8 @@
 ---
 title: FunctionalInterfaceMethodChanged
-summary: Casting a lambda to this @FunctionalInterface can cause a behavior change from casting to a functional superinterface, which is surprising to users.  Prefer decorator methods to this surprising behavior.
+summary: Casting a lambda to this @FunctionalInterface can cause a behavior change
+  from casting to a functional superinterface, which is surprising to users.  Prefer
+  decorator methods to this surprising behavior.
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -53,4 +55,3 @@ static Runnable crashTerminating(Runnable r) {
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("FunctionalInterfaceMethodChanged")` to the enclosing element.
-

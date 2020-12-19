@@ -1,6 +1,7 @@
 ---
 title: IdentityHashMapBoxing
-summary: Using IdentityHashMap with a boxed type as the key is risky since boxing may produce distinct instances
+summary: Using IdentityHashMap with a boxed type as the key is risky since boxing
+  may produce distinct instances
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -42,4 +43,3 @@ But:
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("IdentityHashMapBoxing")` to the enclosing element.
-

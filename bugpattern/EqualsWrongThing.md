@@ -1,6 +1,7 @@
 ---
 title: EqualsWrongThing
-summary: Comparing different pairs of fields/getters in an equals implementation is probably a mistake.
+summary: Comparing different pairs of fields/getters in an equals implementation is
+  probably a mistake.
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -34,4 +35,3 @@ class Frobnicator {
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("EqualsWrongThing")` to the enclosing element.
-

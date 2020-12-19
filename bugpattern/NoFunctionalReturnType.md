@@ -1,6 +1,7 @@
 ---
 title: NoFunctionalReturnType
-summary: Instead of returning a functional type, return the actual type that the returned function would return and use lambdas at use site.
+summary: Instead of returning a functional type, return the actual type that the returned
+  function would return and use lambdas at use site.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -17,4 +18,3 @@ Returning the actual type that the returned function would return instead of a f
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("NoFunctionalReturnType")` to the enclosing element.
-

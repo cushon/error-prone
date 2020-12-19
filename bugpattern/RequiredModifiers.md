@@ -1,9 +1,10 @@
 ---
 title: RequiredModifiers
-summary: This annotation is missing required modifiers as specified by its @RequiredModifiers annotation
+summary: This annotation is missing required modifiers as specified by its @RequiredModifiers
+  annotation
 layout: bugpattern
-tags: LikelyError
-severity: WARNING
+tags: ''
+severity: ERROR
 ---
 
 <!--
@@ -19,4 +20,3 @@ element that is missing one or more required modifiers.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("RequiredModifiers")` to the enclosing element.
-

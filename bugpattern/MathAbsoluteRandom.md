@@ -1,6 +1,7 @@
 ---
 title: MathAbsoluteRandom
-summary: Math.abs does not always give a positive result. Please consider other methods for positive random numbers.
+summary: Math.abs does not always give a positive result. Please consider other methods
+  for positive random numbers.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -48,4 +49,3 @@ lng = (lng == Long.MIN_VALUE) ? 0 : Math.abs(lng);
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("MathAbsoluteRandom")` to the enclosing element.
-

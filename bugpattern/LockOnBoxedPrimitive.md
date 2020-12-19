@@ -1,6 +1,7 @@
 ---
 title: LockOnBoxedPrimitive
-summary: It is dangerous to use a boxed primitive as a lock as it can unintentionally lead to sharing a lock with another piece of code.
+summary: It is dangerous to use a boxed primitive as a lock as it can unintentionally
+  lead to sharing a lock with another piece of code.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -17,4 +18,3 @@ Instances of boxed primitive types may be cached by the standard library `valueO
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("LockOnBoxedPrimitive")` to the enclosing element.
-

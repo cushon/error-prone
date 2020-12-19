@@ -1,6 +1,7 @@
 ---
 title: UnnecessaryAnonymousClass
-summary: Implementing a functional interface is unnecessary; prefer to implement the functional interface method directly and use a method reference instead.
+summary: Implementing a functional interface is unnecessary; prefer to implement the
+  functional interface method directly and use a method reference instead.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -69,4 +70,3 @@ reference equality, but if you are doing so, consider not making this change.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("UnnecessaryAnonymousClass")` to the enclosing element.
-

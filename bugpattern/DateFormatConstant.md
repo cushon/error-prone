@@ -48,9 +48,7 @@ private static final DateFormat dateFormat =
 [`DateFormat`]: http://docs.oracle.com/javase/8/docs/api/java/text/DateFormat.html
 [`ThreadLocal`]: http://docs.oracle.com/javase/8/docs/api/java/lang/ThreadLocal.html
 [`DateTimeFormatter`]: https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
-
 [style]: https://google.github.io/styleguide/javaguide.html#s5.2.4-constant-names
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("DateFormatConstant")` to the enclosing element.
-

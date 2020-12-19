@@ -1,6 +1,7 @@
 ---
 title: FromTemporalAccessor
-summary: Certain combinations of javaTimeType.from(TemporalAccessor) will always throw a DateTimeException or return the parameter directly.
+summary: Certain combinations of javaTimeType.from(TemporalAccessor) will always throw
+  a DateTimeException or return the parameter directly.
 layout: bugpattern
 tags: ''
 severity: ERROR
@@ -17,4 +18,3 @@ Not all java.time types can be created via from(TemporalAccessor). For example, 
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("FromTemporalAccessor")` to the enclosing element.
-

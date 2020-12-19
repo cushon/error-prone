@@ -1,6 +1,7 @@
 ---
 title: ParameterName
-summary: Detects `/* name= */`-style comments on actual parameters where the name doesn't match the formal parameter
+summary: Detects `/* name= */`-style comments on actual parameters where the name
+  doesn't match the formal parameter
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -29,7 +30,7 @@ parameter:
 booleanMethod(/* enableFoo= */ true);
 ```
 
-Varargs methods are also supported using `...` syntax: `java varargsMethod(/*
+Varargs methods are also supported using `...` syntax: `void varargsMethod(/*
 states...= */ true, true, false);`
 
 If the comment deliberately does not match the formal parameter name, using a
@@ -37,4 +38,3 @@ regular block comment without the `=` is recommended: `/* enableFoo */`.
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("ParameterName")` to the enclosing element.
-

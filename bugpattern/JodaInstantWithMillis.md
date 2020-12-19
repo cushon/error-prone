@@ -1,6 +1,7 @@
 ---
 title: JodaInstantWithMillis
-summary: Use of instant.withMillis(long) is not allowed. Please use new Instant(long) instead.
+summary: Use of instant.withMillis(long) is not allowed. Please use new Instant(long)
+  instead.
 layout: bugpattern
 tags: ''
 severity: WARNING
@@ -17,4 +18,3 @@ Joda-Time's 'instant.withMillis(long)' method is often a source of bugs because 
 
 ## Suppression
 Suppress false positives by adding the suppression annotation `@SuppressWarnings("JodaInstantWithMillis")` to the enclosing element.
-
