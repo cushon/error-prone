@@ -41,7 +41,6 @@ import com.sun.source.tree.ReturnTree;
 import com.sun.source.util.JavacTask;
 import com.sun.tools.javac.api.JavacTool;
 import com.sun.tools.javac.file.JavacFileManager;
-import com.sun.tools.javac.util.Context;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -92,7 +91,7 @@ public class ErrorProneJavacPluginTest {
             "  }",
             "}"),
         UTF_8);
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
     JavacTask task =
         JavacTool.create()
@@ -133,7 +132,7 @@ public class ErrorProneJavacPluginTest {
             "  public void run() {}",
             "}"),
         UTF_8);
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
     JavacTask task =
         JavacTool.create()
@@ -191,7 +190,7 @@ public class ErrorProneJavacPluginTest {
             "  public void run() {}",
             "}"),
         UTF_8);
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
     JavacTask task =
         JavacTool.create()
@@ -222,7 +221,7 @@ public class ErrorProneJavacPluginTest {
     FileSystem fileSystem = Jimfs.newFileSystem(Configuration.unix());
     Path source = fileSystem.getPath("Test.java");
     Files.write(source, "class Test {}".getBytes(UTF_8));
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
     StringWriter sw = new StringWriter();
     JavacTask task =
@@ -245,7 +244,7 @@ public class ErrorProneJavacPluginTest {
     FileSystem fileSystem = Jimfs.newFileSystem(Configuration.unix());
     Path source = fileSystem.getPath("Test.java");
     Files.write(source, "class Test {}".getBytes(UTF_8));
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
     StringWriter sw = new StringWriter();
     JavacTask task =
@@ -293,7 +292,7 @@ public class ErrorProneJavacPluginTest {
             "  }",
             "}"),
         UTF_8);
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
     JavacTask task =
         JavacTool.create()
@@ -356,7 +355,7 @@ public class ErrorProneJavacPluginTest {
             "  }",
             "}"),
         UTF_8);
-    JavacFileManager fileManager = new JavacFileManager(new Context(), false, UTF_8);
+    JavacFileManager fileManager = FileManagers.testFileManager();
     fileManager.setLocation(
         StandardLocation.ANNOTATION_PROCESSOR_PATH,
         Streams.concat(

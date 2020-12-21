@@ -31,6 +31,7 @@ import com.google.errorprone.BaseErrorProneJavaCompiler;
 import com.google.errorprone.BugPattern;
 import com.google.errorprone.BugPattern.SeverityLevel;
 import com.google.errorprone.CompilationTestHelper;
+import com.google.errorprone.FileManagers;
 import com.google.errorprone.bugpatterns.apidiff.ApiDiff.ClassMemberKey;
 import com.google.errorprone.bugpatterns.apidiff.ApiDiffProto.Diff;
 import com.google.errorprone.bugpatterns.apidiff.CompilationBuilderHelpers.CompilationBuilder;
@@ -40,10 +41,8 @@ import com.google.errorprone.scanner.ErrorProneScanner;
 import com.google.errorprone.scanner.ScannerSupplier;
 import com.sun.tools.javac.api.JavacTool;
 import com.sun.tools.javac.file.JavacFileManager;
-import com.sun.tools.javac.util.Context;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collections;
@@ -59,8 +58,7 @@ import org.junit.runners.JUnit4;
 public class ApiDiffCheckerTest {
 
   @Rule public final TemporaryFolder tempFolder = new TemporaryFolder();
-  private final JavacFileManager fileManager =
-      new JavacFileManager(new Context(), false, StandardCharsets.UTF_8);
+  private final JavacFileManager fileManager = FileManagers.testFileManager();
 
   @Retention(CLASS)
   @Target({ANNOTATION_TYPE, CONSTRUCTOR, FIELD, METHOD, TYPE})
@@ -419,7 +417,8 @@ public class ApiDiffCheckerTest {
         .addSourceLines(
             "Lib.java",
             "package my.lib;",
-            "import com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
+            "import"
+                + " com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
             "@RequiresNewApiVersion",
             "public final class Lib {}")
         .addSourceLines(
@@ -438,12 +437,14 @@ public class ApiDiffCheckerTest {
         .addSourceLines(
             "Lib.java",
             "package my.lib;",
-            "import com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
+            "import"
+                + " com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
             "@RequiresNewApiVersion",
             "public final class Lib {}")
         .addSourceLines(
             "Test.java",
-            "import com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
+            "import"
+                + " com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
             "import my.lib.Lib;",
             "class Test {",
             "  @RequiresNewApiVersion",
@@ -458,7 +459,8 @@ public class ApiDiffCheckerTest {
         .addSourceLines(
             "Lib.java",
             "package my.lib;",
-            "import com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
+            "import"
+                + " com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
             "public final class Lib {",
             "  @RequiresNewApiVersion",
             "  public void foo() {}",
@@ -481,7 +483,8 @@ public class ApiDiffCheckerTest {
         .addSourceLines(
             "Lib.java",
             "package my.lib;",
-            "import com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
+            "import"
+                + " com.google.errorprone.bugpatterns.apidiff.ApiDiffCheckerTest.RequiresNewApiVersion;",
             "public final class Lib {",
             "  @RequiresNewApiVersion",
             "  public static final int FOO = 1;",
