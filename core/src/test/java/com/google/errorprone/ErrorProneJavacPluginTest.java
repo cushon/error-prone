@@ -356,28 +356,35 @@ public class ErrorProneJavacPluginTest {
             "}"),
         UTF_8);
     JavacFileManager fileManager = FileManagers.testFileManager();
-    fileManager.setLocation(
-        StandardLocation.ANNOTATION_PROCESSOR_PATH,
-        Streams.concat(
-                Stream.of(libJar),
-                Streams.stream(
-                        Splitter.on(File.pathSeparatorChar)
-                            .split(StandardSystemProperty.JAVA_CLASS_PATH.value()))
-                    .map(File::new))
-            .collect(toImmutableList()));
+    Iterable<? extends File> previousAnnotationProcessorPath =
+        fileManager.getLocation(StandardLocation.ANNOTATION_PROCESSOR_PATH);
     DiagnosticCollector<JavaFileObject> diagnosticCollector = new DiagnosticCollector<>();
-    JavacTask task =
-        JavacTool.create()
-            .getTask(
-                null,
-                fileManager,
-                diagnosticCollector,
-                ImmutableList.of(
-                    "-Xplugin:ErrorProne -XepDisableAllChecks -Xep:TestCompilesWithFix:ERROR",
-                    "-XDcompilePolicy=byfile"),
-                ImmutableList.of(),
-                fileManager.getJavaFileObjects(source));
-    assertThat(task.call()).isFalse();
+    try {
+      fileManager.setLocation(
+          StandardLocation.ANNOTATION_PROCESSOR_PATH,
+          Streams.concat(
+                  Stream.of(libJar),
+                  Streams.stream(
+                          Splitter.on(File.pathSeparatorChar)
+                              .split(StandardSystemProperty.JAVA_CLASS_PATH.value()))
+                      .map(File::new))
+              .collect(toImmutableList()));
+      JavacTask task =
+          JavacTool.create()
+              .getTask(
+                  null,
+                  fileManager,
+                  diagnosticCollector,
+                  ImmutableList.of(
+                      "-Xplugin:ErrorProne -XepDisableAllChecks -Xep:TestCompilesWithFix:ERROR",
+                      "-XDcompilePolicy=byfile"),
+                  ImmutableList.of(),
+                  fileManager.getJavaFileObjects(source));
+      assertThat(task.call()).isFalse();
+    } finally {
+      fileManager.setLocation(
+          StandardLocation.ANNOTATION_PROCESSOR_PATH, previousAnnotationProcessorPath);
+    }
     Diagnostic<? extends JavaFileObject> diagnostic =
         diagnosticCollector.getDiagnostics().stream()
             .filter(d -> d.getKind() == Diagnostic.Kind.ERROR)
