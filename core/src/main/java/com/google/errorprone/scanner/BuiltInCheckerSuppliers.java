@@ -21,7 +21,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Streams;
 import com.google.errorprone.BugCheckerInfo;
-import com.google.errorprone.bugpatterns.AlreadyChecked;
 import com.google.errorprone.bugpatterns.AlwaysThrows;
 import com.google.errorprone.bugpatterns.AmbiguousMethodReference;
 import com.google.errorprone.bugpatterns.AnnotateFormatMethod;
@@ -210,7 +209,6 @@ import com.google.errorprone.bugpatterns.MissingBraces;
 import com.google.errorprone.bugpatterns.MissingCasesInEnumSwitch;
 import com.google.errorprone.bugpatterns.MissingDefault;
 import com.google.errorprone.bugpatterns.MissingFail;
-import com.google.errorprone.bugpatterns.MissingImplementsComparable;
 import com.google.errorprone.bugpatterns.MissingOverride;
 import com.google.errorprone.bugpatterns.MissingSuperCall;
 import com.google.errorprone.bugpatterns.MissingTestCall;
@@ -760,7 +758,6 @@ public class BuiltInCheckerSuppliers {
       getSuppliers(
           // keep-sorted start
           AlmostJavadoc.class,
-          AlreadyChecked.class,
           AmbiguousMethodReference.class,
           AnnotateFormatMethod.class,
           ArgumentSelectionDefectChecker.class,
@@ -888,7 +885,6 @@ public class BuiltInCheckerSuppliers {
           MemoizeConstantVisitorStateLookups.class,
           MissingCasesInEnumSwitch.class,
           MissingFail.class,
-          MissingImplementsComparable.class,
           MissingOverride.class,
           MissingSummary.class,
           MixedMutabilityReturnType.class,

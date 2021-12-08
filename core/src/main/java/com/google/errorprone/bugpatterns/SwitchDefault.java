@@ -33,7 +33,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nullable;
 
 /** A {@link BugChecker}; see the associated {@link BugPattern} annotation for details. */
 @BugPattern(
@@ -57,13 +56,13 @@ public class SwitchDefault extends BugChecker implements SwitchTreeMatcher {
       CaseTree caseTree = it.next();
       defaultStatementGroup.add(caseTree);
       if (caseTree.getExpression() == null) {
-        while (it.hasNext() && isNullOrEmpty(caseTree.getStatements())) {
+        while (it.hasNext() && caseTree.getStatements().isEmpty()) {
           caseTree = it.next();
           defaultStatementGroup.add(caseTree);
         }
         break;
       }
-      if (!isNullOrEmpty(caseTree.getStatements())) {
+      if (!caseTree.getStatements().isEmpty()) {
         defaultStatementGroup.clear();
       }
     }
@@ -106,7 +105,7 @@ public class SwitchDefault extends BugChecker implements SwitchTreeMatcher {
       // If the default case isn't the last case in its statement group, move it to the end.
       fix.delete(defaultTree);
       CaseTree lastCase = getLast(defaultStatementGroup);
-      if (!isNullOrEmpty(lastCase.getStatements())) {
+      if (!lastCase.getStatements().isEmpty()) {
         fix.prefixWith(lastCase.getStatements().get(0), state.getSourceForNode(defaultTree));
       } else {
         fix.postfixWith(lastCase, state.getSourceForNode(defaultTree));
@@ -119,9 +118,5 @@ public class SwitchDefault extends BugChecker implements SwitchTreeMatcher {
       description.addFix(fix.build());
     }
     return description.build();
-  }
-
-  private static <T> boolean isNullOrEmpty(@Nullable List<T> elementList) {
-    return elementList == null || elementList.isEmpty();
   }
 }

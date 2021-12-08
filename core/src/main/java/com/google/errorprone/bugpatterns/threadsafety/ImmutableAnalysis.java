@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 The Error Prone Authors.
+ * Copyright 2021 The Error Prone Authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,6 +87,37 @@ public class ImmutableAnalysis {
 
   boolean hasThreadSafeTypeParameterAnnotation(TypeVariableSymbol sym) {
     return threadSafety.hasThreadSafeTypeParameterAnnotation(sym);
+  }
+
+  Violation checkRedundantAnnotations(
+      TypeVariableSymbol sym,
+      ImmutableList<Type> bounds,
+      ImmutableSet<String> containerTypeParameters) {
+    if (!threadSafety.isBoundedToThreadSafeTypesOnly(bounds, containerTypeParameters)) {
+      return Violation.absent();
+    }
+
+    Violation violation = Violation.absent();
+
+    if (threadSafety.hasThreadSafeTypeParameterAnnotation(sym)) {
+      violation =
+          violation.plus(
+              String.format(
+                  "'%s' is annotated with @ImmutableTypeParameter but it is already bounded to"
+                      + " immutable types only. The annotation can be safely removed",
+                  threadSafety.getPrettyName(sym)));
+    }
+
+    if (containerTypeParameters.contains(sym.getSimpleName().toString())) {
+      violation =
+          violation.plus(
+              String.format(
+                  "'%s' is referenced by containerOf but it is already bounded to immutable types"
+                      + " only. The reference can be safely removed",
+                  threadSafety.getPrettyName(sym)));
+    }
+
+    return violation;
   }
 
   Violation checkInstantiation(

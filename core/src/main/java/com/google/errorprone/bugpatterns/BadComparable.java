@@ -18,7 +18,6 @@ package com.google.errorprone.bugpatterns;
 
 import static com.google.errorprone.BugPattern.SeverityLevel.WARNING;
 import static com.google.errorprone.matchers.Matchers.allOf;
-import static com.google.errorprone.matchers.Matchers.compareToMethodDeclaration;
 import static com.google.errorprone.matchers.Matchers.isSubtypeOf;
 import static com.google.errorprone.matchers.Matchers.methodHasArity;
 import static com.google.errorprone.matchers.Matchers.methodHasVisibility;
@@ -52,6 +51,13 @@ import com.sun.tools.javac.code.TypeTag;
     severity = WARNING,
     tags = StandardTags.FRAGILE_CODE)
 public class BadComparable extends BugChecker implements TypeCastTreeMatcher {
+  /** Matcher for the overriding method of 'int java.lang.Comparable.compareTo(T other)' */
+  private static final Matcher<MethodTree> COMPARABLE_METHOD_MATCHER =
+      allOf(
+          methodIsNamed("compareTo"),
+          methodHasVisibility(PUBLIC),
+          methodReturns(INT_TYPE),
+          methodHasArity(1));
 
   private static final Matcher<ClassTree> COMPARABLE_CLASS_MATCHER =
       isSubtypeOf("java.lang.Comparable");
@@ -123,7 +129,7 @@ public class BadComparable extends BugChecker implements TypeCastTreeMatcher {
     if (method == null) {
       return Description.NO_MATCH;
     }
-    if (!compareToMethodDeclaration().matches(method, state)
+    if (!COMPARABLE_METHOD_MATCHER.matches(method, state)
         && !COMPARATOR_METHOD_MATCHER.matches(method, state)) {
       return Description.NO_MATCH;
     }

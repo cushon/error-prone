@@ -179,7 +179,7 @@ public class DoubleBraceInitialization extends BugChecker implements NewClassTre
                 + typeArguments
                 + "builder()"
                 + args.stream().map(a -> ".put(" + a + ")").collect(joining(""))
-                + ".buildOrThrow()";
+                + ".build()";
       } else {
         replacement = args.stream().collect(joining(", ", factoryMethod + "(", ")"));
       }
