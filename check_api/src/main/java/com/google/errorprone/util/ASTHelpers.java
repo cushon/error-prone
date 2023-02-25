@@ -1469,7 +1469,7 @@ public class ASTHelpers {
     if (compound == null) {
       return null;
     }
-    return TypeAnnotations.instance(state.context).annotationTargetType(compound, target);
+    return TypeAnnotations.instance(state.context).annotationTargetType(/*(JCTree) anno, */compound, target);
   }
 
   /**
